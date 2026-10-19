@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    background: #14121a;
+    color: #e8e3d8;
+    font-family: system-, sans-serif;
+}
+
+.app {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+h1 {
+    text-align: center;
+    color: #d4af37;
+}
+
+/* Grille des éclats : 2 colonnes sur grand écran, 1 sur mobile */
+.eclats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Couleur de chaque type d'éclat */
+.eclat-antique    { --couleur: #3b8eea; }
+.eclat-neant      { --couleur: #803bb8; }
+.eclat-sacre      { --couleur: #da8507; }
+.eclat-primordial { --couleur: #e71111; }
+.rarete-epique     { --rarete: #b06ee8; }
+.rarete-legendaire { --rarete: #f0b240; }
+.rarete-mythique   { --rarete: #ff5a5a; }
+
+/* Carte d'un éclat */
+.eclat {
+    background: #1f1b27;
+    border: 1px solid var(--couleur);
+    border-top: 4px solid var(--couleur);
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.eclat h2 {
+    margin-top: 0;
+    color: var(--couleur);
+    text-align: center;
+}
+
+/* Boutons d'invocation */
+.boutons-invocation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.boutons-invocation button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: var(--couleur);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.boutons-invocation button:hover {
+    filter: brightness(1.15);
+}
+
+/* Raretés côte à côte */
+.raretes {
+    display: flex;
+    gap: 12px;
+}
+
+.rarete {
+    flex: 1;
+    background: #29233a;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.rarete h3 {
+  margin: 0 0 8px;
+  color: var(--rarete);
+}
+
+.rarete p {
+  margin: 4px 0;
+  color: #9a93a8;
+  font-size: 0.9rem;
+}
+
+.rarete .chance {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.bouton-obtenu {
+  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  color: #e8e3d8;
+  border: 1px solid #6b6080;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.bouton-obtenu:hover {
+  background: #3a3346;
+}
+
+@media (max-width: 700px) {
+  .eclats {
+    grid-template-columns: 1fr;
+  }
+}
