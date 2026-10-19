@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Rarete({nom, base, seuil, bonus}) {
-    const [compteur, setCompteur] = useState(0);
+function Rarete({cle, nom, base, seuil, bonus}) {
+    const [compteur, setCompteur] = useState(() => {
+        const sauvegarde = localStorage.getItem(cle);
+        return sauvegarde ? Number(sauvegarde) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem(cle, compteur);
+    }, [compteur, cle]);
 
     const chance = compteur < seuil ? base : Math.min(100, base + (compteur - (seuil - 1)) * bonus);
     
